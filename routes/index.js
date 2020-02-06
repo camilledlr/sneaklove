@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
 router.get("/sneakers", (req, res) => {
   sneakerModel.find()
   .then(sneakers => {
-    console.log(sneakers);
+    console.log(sneakers)
     res.render("products", {sneakers});
   })
   .catch(dbError => {

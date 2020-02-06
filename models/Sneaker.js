@@ -8,6 +8,7 @@ const sneakerSchema = new Schema({
   description:String,
   price:Number,
   category:[String],
+  image:String,
   id_tags: [Schema.Types.ObjectId]
 });
 
