@@ -17,7 +17,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon ./app.js -e js,hbs"
+    "server": "nodemon ./app.js -e js,hbs",
+    "dev": "DEBUG=starter-code:* nodemon ./bin/www -e hbs,js",
   },
   "keywords": [],
   "author": "",
