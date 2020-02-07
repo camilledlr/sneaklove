@@ -21,11 +21,11 @@ router.get("/product-add", (req, res) => {
   
   
 router.post("/product-add", uploadCloud.single("image"),(req, res, next) => {
-    const {name,ref,size,description, price, category} = req.body
+    const {name,ref,size,description, price, category, tag} = req.body
     const image = req.file.url;
     const imgName = req.file.originalName
     console.log(req.body)
-    sneakerModel.create({name,ref,size,description, price, category, image})
+    sneakerModel.create({name,ref,size,description, price, category, tag, image})
   .then(newsneaker => {
     console.log(newsneaker);
     res.redirect("/dashboard")})
