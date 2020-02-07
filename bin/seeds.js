@@ -8,7 +8,7 @@ const someSneakers = [{
     description: "it's a classic sneaker",
     price: 300,
     image: "https://res.cloudinary.com/dxcmeyci9/image/upload/v1581004611/nike-airmax-95_r08g18.jpg",
-    category: ["men","women"]
+    category: "men"
 },
 {
     name: "Converse",
@@ -17,7 +17,7 @@ const someSneakers = [{
     description: "it's a rock sneaker",
     price: 60,
     image:"https://res.cloudinary.com/dxcmeyci9/image/upload/v1581004682/converse-black_w0cf12.jpg",
-    category: ["men","women", "kids"]
+    category: "women"
 },
   {
     name: "Stan Smith",
@@ -26,7 +26,7 @@ const someSneakers = [{
     description: "it's a urban sneaker",
     price: 80,
     image: "https://res.cloudinary.com/dxcmeyci9/image/upload/v1581004573/stan-smith_lhlgsx.jpg",
-    category: ["men","women", "kids"]
+    category: "kids"
   }];
 
   mongoose

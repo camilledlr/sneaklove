@@ -6,9 +6,26 @@ router.get("/", (req, res) => {
   res.render("index");
 });
 
-// router.get("/sneakers/:cat", (req, res) => {
-//   res.send("bar");
-// });
+router.get("/sneakers/men", (req, res) => {
+  sneakerModel.find({category: "men"})
+  .then(sneakers => {
+    res.render("products", {sneakers});
+  }) 
+});
+
+router.get("/sneakers/women", (req, res) => {
+  sneakerModel.find({category: "women"})
+  .then(sneakers => {
+    res.render("products", {sneakers});
+  }) 
+});
+
+router.get("/sneakers/kids", (req, res) => {
+  sneakerModel.find({category: "kids"})
+  .then(sneakers => {
+    res.render("products", {sneakers});
+  }) 
+});
 
 router.get("/sneakers/collection", (req, res) => {
   sneakerModel.find()
