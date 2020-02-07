@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 //   res.send("bar");
 // });
 
-router.get("/sneakers", (req, res) => {
+router.get("/sneakers/collection", (req, res) => {
   sneakerModel.find()
   .then(sneakers => {
     console.log(sneakers)
@@ -20,6 +20,7 @@ router.get("/sneakers", (req, res) => {
     res.send(dbError)
   })
 });
+
 
 router.get("/one-product/:id", (req, res) => {
   res.render("baz");

@@ -76,6 +76,9 @@ app.use(eraseSessionMessage());
 const basePageRouter = require("./routes/index");
 app.use("/", basePageRouter);
 
+const dashboardRouter = require("./routes/dashboard_sneaker");
+app.use("/dashboard", dashboardRouter);
+
 // const listener = app.listen(process.env.PORT, () => {
 //   console.log(
 //     `app started at ${process.env.SITE_URL}:${process.env.PORT}`

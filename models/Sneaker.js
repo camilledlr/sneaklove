@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const sneakerSchema = new Schema({
   name: String,
   ref:String,
-  sizes:[String],
+  size:Number,
   description:String,
   price:Number,
-  category:[String],
+  category:String,
   image:String,
   id_tags: [Schema.Types.ObjectId]
 });
