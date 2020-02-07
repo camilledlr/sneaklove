@@ -1,26 +1,34 @@
 const express = require("express"); // import express in this module
 const router = new express.Router(); // create an app sub-module (router)
 const sneakerModel = require("../models/Sneaker")
+const tagModel = require("../models/Tag")
+const uploadCloud = require("../config/cloudinary")
 
 router.get("/", (req, res) => {
     sneakerModel.find()
     .then(sneakers => {
-      console.log(sneakers)
       res.render("products_manage", {sneakers});
   });
 })
 
 router.get("/product-add", (req, res) => {
-
-    res.render("products_add");
+    tagModel.find()
+    .then(tags => {
+        console.log(tags);
+        res.render("products_add", {tags})
   });
+})
   
   
-router.post("/product-add", (req, res) => {
-  sneakerModel.create(req.body)
-  .then(res => {
-    console.log(res)
-  })
+router.post("/product-add", uploadCloud.single("image"),(req, res, next) => {
+    const {name,ref,size,description, price, category} = req.body
+    const image = req.file.url;
+    const imgName = req.file.originalName
+    console.log(req.body)
+    sneakerModel.create({name,ref,size,description, price, category, image})
+  .then(newsneaker => {
+    console.log(newsneaker);
+    res.redirect("/dashboard")})
   .catch(dbError => {
     res.send(dbError)
   })

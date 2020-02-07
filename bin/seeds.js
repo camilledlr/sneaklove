@@ -29,6 +29,11 @@ const someSneakers = [{
     category: ["men","women", "kids"]
   }];
 
+const someTags = [
+  {label : "Fancy"},
+  {label : "Casual"},
+  {label : "Street"},
+]
   mongoose
   .connect('mongodb://localhost:27017/sneaker-love', {useNewUrlParser: true})
   .then(x => {
@@ -38,6 +43,6 @@ const someSneakers = [{
     console.error('Error connecting to mongo', err)
   });
   
-sneakerModel.insertMany(someSneakers)
+tagModel.insertMany(someTags)
 .then(res => console.log("ok db inserted"))
 .catch(err => console.log(err))

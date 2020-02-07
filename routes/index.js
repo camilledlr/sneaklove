@@ -11,15 +11,20 @@ router.get("/", (req, res) => {
 // });
 
 router.get("/sneakers/collection", (req, res) => {
-  sneakerModel.find()
-  .then(sneakers => {
-    console.log(sneakers)
-    res.render("products", {sneakers});
+  Promise.all([
+    tagModel.find(),
+    sneakerModel.find()
+  ])
+  .then(dbRes => {
+    res.render("products", {
+      tags: dbRes[0],
+      sneakers: dbRes[1]
   })
   .catch(dbError => {
     res.send(dbError)
   })
 });
+
 
 
 router.get("/one-product/:id", (req, res) => {
