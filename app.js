@@ -5,6 +5,7 @@ require("./config/mongodb"); // database initial setup
 require("./helpers/helpers-hbs"); // utils for hbs templates
 
 
+
 // base dependencies
 const express = require("express");
 const hbs = require("hbs");
@@ -75,7 +76,8 @@ app.use(eraseSessionMessage());
 // Getting/Using router(s)
 const basePageRouter = require("./routes/index");
 app.use("/", basePageRouter);
-
+const auth = require("./routes/auth");
+app.use("/", auth);
 // const listener = app.listen(process.env.PORT, () => {
 //   console.log(
 //     `app started at ${process.env.SITE_URL}:${process.env.PORT}`
